@@ -107,6 +107,15 @@ func execCommand(cmd string) (string, error) {
 }
 
 func loadConfigIfExists(path string, cfg map[string]map[string]string) (map[string]map[string]string, error) {
+	if strings.HasPrefix(path, "~/") {
+		homedir, err := os.UserHomeDir()
+		if err != nil {
+			return nil, err
+		}
+
+		path = filepath.Join(homedir, path[2:])
+	}
+
 	var err error
 	path, err = filepath.Abs(path)
 	if err != nil {
