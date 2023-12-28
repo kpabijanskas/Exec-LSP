@@ -21,7 +21,7 @@
           meta = with pkgs.lib; {
             description = "Exec LSP is a very simple LSP server to execute commands.";
             homepage = "https://github.com/kpabijanskas/exec-lsp";
-            license = licenses.mit;
+            license = licenses.gpl3;
           };
         };
       }
